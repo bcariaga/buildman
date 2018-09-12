@@ -1,0 +1,29 @@
+{
+  "name": "buildman",
+  "version": "0.1.0",
+  "description": "A tool for making files from a Postman Collection and vice versa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "buildman": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcariaga/buildman.git"
+  },
+  "keywords": [
+    "postman"
+  ],
+  "author": "BCariaga <cariaga.bh@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "commander": "^2.18.0",
+    "postman-collection": "^3.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/bcariaga/buildman/issues"
+  },
+  "homepage": "https://github.com/bcariaga/buildman#readme"
+}
