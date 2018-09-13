@@ -1,43 +1,68 @@
 #!/usr/bin/env node
 
-const   Spinner = require('cli-spinner').Spinner,
-        importCollection = require("./lib/import").importCollection,
+const  importCollection = require("./lib/import").importCollection,
         exportCollection = require("./lib/export").exportCollection,
-        fs = require('fs');
+        fs = require('fs')
+        CFonts = require('cfonts');
 
 const validateFiles = (paths = []) =>{
     paths.map(path => {
         if (!fs.existsSync(path)) { 
-            console.log(`la ruta ${path} no es valida..`);
+            say(`la ruta ${path} no es valida..`, "yellowBright");
             process.exit(1);
         } 
     })
 }
 const printInfo = () =>{
-    console.log("Hola! gracias por usar buildman! \n");
+    CFonts.say('buildman', {
+        font: 'block', 
+        align: 'center',
+        colors: ['redBright', 'yellowBright'],
+        background: 'transparent',
+        letterSpacing: 0,
+        lineHeight: 1,
+        space: true,
+        maxLength: '0',
+    });
+    CFonts.say('buildman v0.1(beta)', {
+        font: 'console', 
+        align: 'right',
+        colors: ['cyan'],
+        background: 'transparent',
+        letterSpacing: 0,
+        lineHeight: 1,
+        space: true,
+        maxLength: '0',
+    });
+    // console.info("buildman v0.1(beta) \n");
 }
 
+const say = (msg, color = 'system')=>{
+    CFonts.say(msg, {
+        font: 'console', 
+        align: 'left',
+        colors: [color],
+        background: 'transparent',
+        letterSpacing: 0,
+        lineHeight: 1,
+        space: true,
+        maxLength: '0',
+    });
+}
 const program = require('commander');
 
 program
     .command('import <collection> <target>')
     .action(function(collection, target) {
         printInfo();
-        console.log(collection);
-        console.log(target);
-        let spinner = new Spinner(`Importando ${collection} `);
         validateFiles([collection, target]);
-        spinner.setSpinnerString(18);
-        spinner.start();
+        
         try {
             importCollection(collection, target);
-            console.log("coleccion importada!");
-            
+            say("coleccion importada!", "green");
         } catch (error) {
-            console.log("ups! algo se rompio! \n");
+            say("ups! algo se rompio! \n", "red");
             console.log(error);
-        }finally{
-            spinner.stop(true)
         }
     })
     .description("lee una postman collection (JSON) y crea una copia en archivos");
@@ -46,18 +71,14 @@ program
     .command('export <collection> <target>')
     .action(function(collection, target) {
         printInfo();
-        let spinner = new Spinner(`Exportando ${collection} `);
         validateFiles([collection, target]);
-        spinner.setSpinnerString(18);
-        spinner.start();
+        
         try {
             exportCollection(collection, target);
-            console.log("coleccion exportada!");
+            say("coleccion exportada!", "green");
         } catch (error) {
-            console.log("ups! algo se rompio! \n");
+            say("ups! algo se rompio! \n", "red");
             console.log(error);
-        }finally{
-            spinner.stop(true)
         }
     })
     .description("lee un directorio y crea una postman collection");
@@ -68,16 +89,14 @@ program.parse(process.argv);
     
 if (program.args.length < 1 ) {
     // console.log(__dirname);
-    let config;
+    printInfo();
     try {
-        config = JSON.parse(fs.readFileSync(`${__dirname}/buildman.json`));
+        let config = JSON.parse(fs.readFileSync(`${__dirname}/buildman.json`));
         validateFiles([config['collection-folder'], config['destination-path']]);
-        console.log(config['collection-folder']);
-        console.log(config['destination-path']);
-        
         exportCollection(config['collection-folder'], config['destination-path']);
+        say("coleccion exportada!", "green");
     } catch (error) {
-        console.log("ups!");
-        console.error(error);
+        say("ups! algo se rompio! \n", "red");
+        console.log(error);
     }
 }
