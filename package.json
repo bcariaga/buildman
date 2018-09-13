@@ -19,6 +19,7 @@
   "author": "BCariaga <cariaga.bh@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
+    "cli-spinner": "^0.2.8",
     "commander": "^2.18.0",
     "postman-collection": "^3.1.1"
   },
