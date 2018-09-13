@@ -28,4 +28,5 @@ donde *collection-folder* es la raiz donde se encuentra la coleccion de postman 
 ## Instalacion
 
 Por ahora el paquete se queda en este repo, podemos instalarlo con npm:
+
 `npm install git+https://github.com/bcariaga/buildman.git`
