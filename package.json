@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/bcariaga/buildman/issues"
   },
-  "homepage": "https://github.com/bcariaga/buildman#readme"
+  "homepage": "https://github.com/bcariaga/buildman#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "mock-fs": "^4.7.0"
+  }
 }
