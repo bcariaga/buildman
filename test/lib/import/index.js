@@ -4,14 +4,6 @@ const expect = require('chai').expect,
 
 const great_collection = require('../../data/great_collection.js').great_collection;
 const importCollection = require('../../../lib/import/').importCollection;
-debugger;
-/*Configuro el mock*/
-// fs_mock({
-//   'virtual/collection': {
-//     'great-collection.postman_collection.json': JSON.stringify(great_collection()),
-//   },
-//   'virtual/result': { },
-// });
 
 describe('ImportCollection', function() {
   beforeEach(function(){
