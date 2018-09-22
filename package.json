@@ -4,7 +4,8 @@
   "description": "A tool for making files from a Postman Collection and vice versa",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "nyc mocha test/test.js",
+    "test-repot" : "nyc --reporter=html --reporter=text mocha test/test.js"
   },
   "bin": {
     "buildman": "./index.js"
@@ -30,6 +31,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
-    "mock-fs": "^4.7.0"
+    "mock-fs": "^4.7.0",
+    "nyc": "^13.0.1"
   }
 }
