@@ -17,7 +17,7 @@
     "postman"
   ],
   "author": "BCariaga <cariaga.bh@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "cfonts": "^2.1.3",
     "commander": "^2.18.0",
