@@ -1,5 +1,6 @@
 # buildman [beta]
-[![Build Status](https://travis-ci.com/bcariaga/buildman.svg?branch=master)](https://travis-ci.com/bcariaga/buildman)
+[![Build Status](https://travis-ci.com/bcariaga/buildman.svg?branch=master)](https://travis-ci.com/bcariaga/buildman) 
+[![codecov](https://codecov.io/gh/bcariaga/buildman/branch/master/graph/badge.svg)](https://codecov.io/gh/bcariaga/buildman)
 
 A tool for making files from a Postman Collection and vice versa
 
