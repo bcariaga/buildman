@@ -4,6 +4,10 @@
 
 A tool for making files from a Postman Collection and vice versa
 
+## Docs:
+
+[https://bcariaga.github.io/buildman/](https://bcariaga.github.io/buildman/)
+
 ## Uso:
 
 Actualmente cuenta con dos comandos:

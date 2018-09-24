@@ -23,6 +23,9 @@ buildman import "path/to/collection.json" "path/to/target/folder"
 
 Esto creara en `path/to/target/folder` un nuevo directorio con el nombre de la colección y todos los archivos de la misma.
 
+[Docs Import](import.md)
+
+
 #### Exportar:
 
 Exportamos un directorio que contiene archivos que componen la colección y lo transformamos en un archivo JSON que postman y newman pueden interpretar (una PostmanCollection):
@@ -30,4 +33,4 @@ Exportamos un directorio que contiene archivos que componen la colección y lo t
 ```shell
 buildman export "path/to/collection/folder" "path/to/save/collection"
 ```
-
+[Docs Export](export.md)
