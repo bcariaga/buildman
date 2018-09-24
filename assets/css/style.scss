@@ -1,0 +1,21 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+    color: #ce9178;
+}
+
+#header nav li a {
+  background-color: #569cd6;
+  border: 1px solid #518ec1;
+}
+
+.fork:focus {
+  background-color: ##1b4167;
+}
+
+a {
+  color: #00daff
+}
