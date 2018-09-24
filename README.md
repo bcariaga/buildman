@@ -1,4 +1,4 @@
-# buildman [beta]
+# buildman ![version](https://img.shields.io/badge/version-beta-yellowgreen.svg)
 [![Build Status](https://travis-ci.com/bcariaga/buildman.svg?branch=master)](https://travis-ci.com/bcariaga/buildman) 
 [![codecov](https://codecov.io/gh/bcariaga/buildman/branch/master/graph/badge.svg)](https://codecov.io/gh/bcariaga/buildman)
 
