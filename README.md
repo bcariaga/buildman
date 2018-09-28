@@ -1,6 +1,7 @@
 # buildman ![version](https://img.shields.io/badge/version-beta-yellowgreen.svg) [![Build Status](https://travis-ci.com/bcariaga/buildman.svg?branch=master)](https://travis-ci.com/bcariaga/buildman) [![codecov](https://codecov.io/gh/bcariaga/buildman/branch/master/graph/badge.svg)](https://codecov.io/gh/bcariaga/buildman)
 
-![buildman-logo](https://raw.githubusercontent.com/bcariaga/buildman/master/images/logo/png/buildman.png) 
+
+<img src="https://raw.githubusercontent.com/bcariaga/buildman/master/images/logo/png/buildman.png" alt="logo" width="128" style="float: right;"/>
 
 A tool for making files from a Postman Collection and vice versa
 
