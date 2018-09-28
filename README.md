@@ -14,7 +14,7 @@ buildman was created on Node.js. To use buildman, you need have [Node.js](https:
 
 You can install buildman by npm:
 
-`npm install git+https://github.com/bcariaga/buildman.git --global`
+`npm install buildman --global`
 
 _Note: Is recomendly install buildman globally (--global or -g) to can run it anywhere._
 
