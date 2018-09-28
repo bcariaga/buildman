@@ -6,34 +6,37 @@ A tool for making files from a Postman Collection and vice versa
 
 ## Docs:
 
-[https://bcariaga.github.io/buildman/](https://bcariaga.github.io/buildman/)
+![https://bcariaga.github.io/buildman/](https://bcariaga.github.io/buildman/)
 
-## Uso:
+## Getting Started 
 
-Actualmente cuenta con dos comandos:
+buildman was created on Node.js. To use buildman, you need have [Node.js](https://nodejs.org/es/) installed.
 
-**import** : recibe el path de la collection de postman (JSON) y el target path donde se va a escribir la estructura de carpetas con la info leida de las colleciones.:
+You can install buildman by npm:
+
+`npm install git+https://github.com/bcariaga/buildman.git --global`
+
+_Note: Is recomendly install buildman globally (--global or -g) to can run it anywhere._
+
+
+To **import** a postman´s collection **(create a files and folder)** you need run:
 
 `buildman import "path/to/collection.json" "path/to/target/folder"`
 
-**export** : lee un directorio* y crea una coleccion de postman (JSON).
+To **export** files and folders to postman´s collection :
 
 `buildman export "path/to/collection/folder" "path/to/save/collection"`
 
-*el **directorio** debe tener cierto formato (el mismo que se crea al leer una colección), en cada nivel se puede definir un test.js y un prescript.js, en el caso de ser el primer nivel o el utimo se agrega un definition.json, que contiene informacion de la collection como el nombre (y nose que mas) y en el caso del request tiene la url, el tipo de llamada etc...
+_Note: the files and folders need a especific format, please see the [docs](https://bcariaga.github.io/buildman/)._
 
-**Adicionalmente:** Si se llama sin parámetros se va a intentar hacer un export (leer un directorio y crear una postman collection), para que esto funcione la raiz del directorio debe tener un archivo json con el siguiente nombre: `buildman.json` y el siguiente formato:
+If you need more info please visit the docs ([https://bcariaga.github.io/buildman/](https://bcariaga.github.io/buildman/))
 
-```json
-{
-    "collection-folder" : "",
-    "destination-path" : ""
-}
-```
-donde *collection-folder* es la raiz donde se encuentra la coleccion de postman (archivos) y *destination-path* es el lugar donde se va a escribir el JSON.
+---
 
-## Instalacion
+### Have problems by buildman?
+Please leave a feedback : https://github.com/bcariaga/buildman/issues/new
 
-Por ahora el paquete se queda en este repo, podemos instalarlo con npm:
+---
 
-`npm install git+https://github.com/bcariaga/buildman.git`
+Logo made by [Freepik](http://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
+
