@@ -91,6 +91,7 @@ if (program.args.length < 1 ) {
     // console.log(__dirname);
     printInfo();
     try {
+        say("holo!", "red")
         let config = JSON.parse(fs.readFileSync(`${__dirname}/buildman.json`));
         validateFiles([config['collection-folder'], config['destination-path']]);
         exportCollection(config['collection-folder'], config['destination-path']);

@@ -1,5 +1,5 @@
 {
-  "name": "buildman",
+  "name": "@bcariaga/buildman",
   "version": "0.1.0",
   "description": "A tool for making files from a Postman Collection and vice versa",
   "main": "index.js",
@@ -26,6 +26,9 @@
   },
   "bugs": {
     "url": "https://github.com/bcariaga/buildman/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://github.com/bcariaga/buildman#readme",
   "devDependencies": {
