@@ -51,9 +51,8 @@ const run = () => {
       expect(fs.existsSync('virtual/result/great-collection/Users/Get Users/definition.json'), 'great-collection/Users/Get Users/definition.json must be exists').to.be.true;
       expect(fs.existsSync('virtual/result/great-collection/Users/Get Users/test.js'), 'great-collection/Users/Get Users/test.js must be exists').to.be.true;
   
-      //TODO: posible bug
-      expect(fs.existsSync('virtual/result/great-collection/Login/Login/definition.json'), 'great-collection/Users/Get Users/definition.json must be exists').to.be.true;
-      expect(fs.existsSync('virtual/result/great-collection/Login/Login/test.js'), 'great-collection/Users/Get Users/test.js must be exists').to.be.true;
+      expect(fs.existsSync('virtual/result/great-collection/Login/definition.json'), 'great-collection/Users/Get Users/definition.json must be exists').to.be.true;
+      expect(fs.existsSync('virtual/result/great-collection/Login/test.js'), 'great-collection/Users/Get Users/test.js must be exists').to.be.true;
     });
   });
 }
