@@ -1,3 +1,3 @@
-theme: jekyll-theme-midnight
+theme: jekyll-theme-minimal
 name: buildman [beta]
 description: A tool for making files from a Postman Collection and vice versa
