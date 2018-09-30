@@ -1,4 +1,4 @@
 theme: jekyll-theme-minimal
 name: buildman [beta]
-logo: [https://raw.githubusercontent.com/bcariaga/buildman/master/images/logo/png/buildman.png]
+logo: https://raw.githubusercontent.com/bcariaga/buildman/master/images/logo/png/buildman.png
 description: A tool for making files from a Postman Collection and vice versa
