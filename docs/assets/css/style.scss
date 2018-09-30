@@ -28,7 +28,13 @@ code{
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
     color: #ce9178;
 }
-
+.highlight .nt{
+  color : #d4d4d4;
+}
 a {
-  color: #1b4167;
+  color: #f15d27;
+}
+
+a:hover{
+  color: #f14101;
 }
