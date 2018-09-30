@@ -2,13 +2,28 @@ language: node_js
 sudo: false
 node_js:
   - "8.11"
+
 install:
   - npm install
   - npm install -g codecov
-script:
-  - npm test
-  - nyc report --reporter=text-lcov > coverage.lcov
-  - codecov
+
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
+test:
+  - script: npm test && nyc report --reporter=text-lcov > coverage.lcov && codecov
+
+deploy:
+  provider: npm
+  email: "cariaga.bh@gmail.com"
+  api_key: "NPM_TOKEN"
+  on:
+    tags: true
+  skip_cleanup: true
+  tag: next
+
 branches:
   only:
   - master
