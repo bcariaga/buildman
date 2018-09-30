@@ -8,16 +8,17 @@ El objetivo es tener a las **colecciones en un formato mas simple de tratar y co
 
 ## Indice
 
-1. [Getting started](##Getting%20started)
-    1. [Instalacion](##Instalacion:)
-2. [Uso](##Uso:)
-    1. [Importar](##Import)
-    2. [Exportar](##Export)
+1. [Getting started](#getting-started)
+    1. [Instalacion](#instalacion)
+2. [Uso](#uso)
+    1. [Importar](#import)
+    2. [Exportar](#export)
 
+---
 
 ## Getting started
 
-## Instalacion:
+## Instalacion
 
 ```shell
 npm install @bcariaga/buildman --global
@@ -27,15 +28,15 @@ Recomiendo instalarlo global para poder usarlo en cualquier lugar, no solo en un
 
 ---
 
-## Uso:
+## Uso
 
---- 
+
 
 ## Import
 
 Como usar **buildman** crear una _copia_ de tu Postman Collection en archivos.
 
-### Introducción:
+### Introducción
 
 buildman nació para cubrir esta necesidad, a medida que vamos agregando código a nuestras colecciones de pruebas, vamos subiendo la complejidad de mantenimiento de las mismas y la importancia de tener un código limpio.
 
