@@ -47,7 +47,9 @@ El primer comando que vamos a tener que usar con buildman va a ser **import**, e
 
 Lo unico que necesitamos es una ruta para el destino y una colección de postman :
 
-`buildman import "path/to/collection.json" "path/to/target/folder"`
+```shell
+buildman import "path/to/collection.json" "path/to/target/folder"
+```
 
 Esto va a crear en `path/to/target/folder` una carpeta llamada `collectionName` y dentro de la misma encontraremos una carpeta para cada request, con su respectiva definicion, prescripts y tests. Ademas si dentro de la colección hay carpetas también las veras reflejadas en el directorio.
 
