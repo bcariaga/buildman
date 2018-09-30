@@ -3,19 +3,32 @@
 
 @import "{{ site.theme }}";
 
+body{
+  background-color: #252526;
+  color : #d4d4d4;
+}
+
+#buildman{
+  color: #f26b3a;
+}
+
+strong{
+  color: #9cdcfe;
+}
+
+h1, h2, h3, h4, h5{
+  color: #569cd6;
+}
+.highlight {
+  background-color: #25252e;
+}
+code{
+  color: #d4d4d4;
+}
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
     color: #ce9178;
 }
 
-#header nav li a {
-  background-color: #569cd6;
-  border: 1px solid #518ec1;
-}
-
-.fork:focus {
-  background-color: #1b4167;
-}
-
 a {
-  color: #00daff
+  color: #1b4167;
 }
