@@ -24,10 +24,13 @@ const preCommand = (collection, target) =>{
 }
 
 program
+    .option("-q, --quiet", "silent output");
+
+
+program
     .command('import <collection> <target>')
     .action(function(collection, target) {
         preCommand(collection, target);
-        
         try {
             importCollection(collection, target);
             utils.say(`coleccion importada en ${target}`, messageColors.success);
@@ -41,7 +44,8 @@ program
 program
     .command('export <collection> <target>')
     .action(function(collection, target) {
-        preCommand(collection, target);
+        if(program.quiet) utils.say("quiet", messageColors.info);
+        
         try {
             exportCollection(collection, target);
             utils.say(`coleccion exportada en ${target}`, messageColors.success);
@@ -52,20 +56,20 @@ program
     })
     .description("lee un directorio y crea una postman collection");
 
-program.version('0.1.0');
-program.name("buildman")
+program.version(utils.version);
+program.name("buildman");
 program.parse(process.argv);
     
 if (program.args.length < 1 ) {
-    printInfo();
+    
     try {
-        say("holo!", "red")
+        const fs = require('fs');
         let config = JSON.parse(fs.readFileSync(`${__dirname}/buildman.json`));
         preCommand(config['collection-folder'], config['destination-path']);
         exportCollection(config['collection-folder'], config['destination-path']);
         utils.say(`coleccion importada en ${config['collection-folder']}`, messageColors.success);
     } catch (error) {
         utils.say(`ups! algo se rompio! \n`, messageColors.danger);
-        //console.log(error);
+        console.log(error);
     }
 }
