@@ -1,6 +1,6 @@
 {
   "name": "@bcariaga/buildman",
-  "version": "0.2.5",
+  "version": "0.2.5a",
   "description": "A tool for making files from a Postman Collection and vice versa",
   "main": "index.js",
   "scripts": {
