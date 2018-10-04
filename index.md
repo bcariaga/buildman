@@ -24,7 +24,7 @@ El objetivo es tener a las **colecciones en un formato mas simple de tratar y co
 npm install @bcariaga/buildman --global
 ```
 
-Recomiendo instalarlo global para poder usarlo en cualquier lugar, no solo en un provecto.
+Recomiendo instalarlo global para poder usarlo en cualquier lugar, no solo en un proyecto.
 
 ---
 
