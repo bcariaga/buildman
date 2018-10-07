@@ -17,77 +17,68 @@ const preCommand = (collection, target) =>{
     utils.welcome();
     utils.validateFiles([collection, target], validationRules => {
         validationRules.map(rule => {
-            if (!rule.valid) utils.say(`opa! ${rule.message}`, messageColors.danger);
+            if (!rule.valid) utils.say(`${getTimeStamp()} # Error: ${rule.message}`, messageColors.danger);
         });
         if (validationRules.some(rule => !rule.valid)) process.exit(1); 
     })
 }
+const getTimeStamp = (date = new Date()) => `(${date.toLocaleTimeString()}:${date.getMilliseconds()})`;
+const printPrettyMessage = (message) => utils.say(`${getTimeStamp()} # ${message.msg}`, messageColors[message.status]); //ojo!
+
 const getLogFn = (level = "normal", quiet = false) => {
-    //TODO:
-    // if (quiet) {
-    //     return (event) => {
-    //         if (event.level < 0) {
-    //             utils.say(event.msg, event.status);
-    //         }
-    //     }
-    // }
-
-    // let filterFn = (evt) => evt.level < 3;
-
-
-    // switch (level) {
-    //     case "crazy":
-    //         filterFn = (evt) => true;
-    //         break;
-    //     case "hard":
-    //         filterFn = (evt) => evt.level < 5;
-    //         break;
-    //     case "normal":
-    //         break;
-    //     default:
-    //         utils.say(`loglevel no reconocido ${level}`, messageColors.warning);
-    //         break;
-    // }
-    let filterFn = (evt) => evt.level < 3;
-    return (event) => {
-        if (filterFn(event)) {
-            utils.say(event.msg, messageColors[event.status]);
+    if (quiet) 
+        return (event) => {
+            if (event.level < 0) //solo errores
+                printPrettyMessage(event);
         }
+
+    let filterFn = (evt) => evt.level < 3;
+
+    switch (level.toLocaleLowerCase()) {
+        case "c":
+        case "crazy":
+            filterFn = (evt) => true;
+            break;
+        case "h":
+        case "hard":
+            filterFn = (evt) => evt.level < 5;
+            break;
+        case "n":
+        case "normal":
+            break;
+        default:
+            utils.say(`loglevel no reconocido (${level})`, messageColors.warning);
+            break;
+    }
+    return (event) => {
+        if (filterFn(event)) 
+            printPrettyMessage(event);
+        
     }
 
 }
 
-//para manejar el verbosity
-program
-    .option("--loglevel [level]", "output level [crazy | hard | normal ]")
-    .option("-q, --quiet", "silent output (show only errors)");
-
 program
     .command('import <collection> <target>')
-    .option("--loglevel [level]", "output level [crazy | hard | normal ]")
+    .option("-l, --loglevel [level]", "output level [(c)razy | (n)ormal{default} | (h)ard]")
     .option("-q, --quiet", "silent output (show only errors)")
-    .action(function(collection, target) {
+    .action(function(collection, target, options) {
         preCommand(collection, target);
-        try {
-            importCollection(collection, target);
-            utils.say(`coleccion importada en ${target}`, messageColors.success);
-        } catch (error) {
-            utils.say(`ups! algo se rompio! \n`, messageColors.danger);
-        }
+        importCollection(collection, target, getLogFn(options.loglevel, options.quiet));
     })
     .description("lee una postman collection (JSON) y crea una copia en archivos");
 
 program
     .command('export <collection> <target>')
-    .option("--loglevel [level]", "output level [crazy | hard | normal ]")
+    .option("-l, --loglevel [level]", "output level [(c)razy | (n)ormal{default} | (h)ard]")
     .option("-q, --quiet", "silent output (show only errors)")
-    .action(function(collection, target) {
+    .action(function(collection, target, options) {
         preCommand(collection, target);
-        exportCollection(collection, target, getLogFn(program.loglevel, program.quiet));
+        exportCollection(collection, target, getLogFn(options.loglevel, options.quiet));
     })
     .description("lee un directorio y crea una postman collection");
 
-program.version(utils.version, '-v, --version');
+program.version(utils.version(), '-v, --version');
 program.name("buildman");
 program.parse(process.argv);
     
