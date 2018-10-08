@@ -8,8 +8,8 @@ const messageColors =
 {
     success : "green",
     warning : "yellow",
-    danger : "red",
-    info : "cyan"
+    danger : "redBright",
+    info : "cyanBright"
 }
 
 const program = require('commander');
@@ -17,13 +17,13 @@ const preCommand = (collection, target) =>{
     utils.welcome();
     utils.validateFiles([collection, target], validationRules => {
         validationRules.map(rule => {
-            if (!rule.valid) utils.say(`${getTimeStamp()} # Error: ${rule.message}`, messageColors.danger);
+            if (!rule.valid) utils.say(`${getTimeStamp()} =--> Error: ${rule.message}`, messageColors.danger);
         });
         if (validationRules.some(rule => !rule.valid)) process.exit(1); 
     })
 }
-const getTimeStamp = (date = new Date()) => `(${date.toLocaleTimeString()}:${date.getMilliseconds()})`;
-const printPrettyMessage = (message) => utils.say(`${getTimeStamp()} # ${message.msg}`, messageColors[message.status]); //ojo!
+const getTimeStamp = (date = new Date()) => `[${date.toLocaleTimeString()}:${date.getMilliseconds()}]`;
+const printPrettyMessage = (message) => utils.say(`${getTimeStamp()} =--> ${message.msg}`, messageColors[message.status]); //ojo!
 
 const getLogFn = (level = "normal", quiet = false) => {
     if (quiet) 
