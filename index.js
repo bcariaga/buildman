@@ -78,6 +78,14 @@ program
     })
     .description("lee un directorio y crea una postman collection");
 
+program
+    .command('check')
+    .action(() => {
+        utils.checkVersion()
+    })
+    .description("check the current version");
+
+
 program.version(utils.version(), '-v, --version');
 program.name("buildman");
 program.parse(process.argv);

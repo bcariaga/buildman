@@ -1,4 +1,6 @@
 {
     "collection-folder" : "",
-    "destination-path" : ""
+    "destination-path" : "",
+
+    "check-updates" : true
 }
