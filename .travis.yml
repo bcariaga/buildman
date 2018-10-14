@@ -22,7 +22,6 @@ deploy:
   on:
     tags: true
   skip_cleanup: true
-  tag: next
 
 branches:
   only:
