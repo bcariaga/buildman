@@ -33,7 +33,7 @@ const run = () => {
             expect(files).to.not.be.null;
             expect(files).haveOwnProperty('folder one');
             expect(files['folder one']).haveOwnProperty('some file.txt');
-            expect(files['folder one']['some file.txt']).to.be.eq('virtual\\folder one\\some file.txt');
+            expect(files['folder one']['some file.txt']).to.be.eq('virtual/folder one/some file.txt');
             expect(files).haveOwnProperty('folder two');
         });
         it("createFile must be create a file", () => {
