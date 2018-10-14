@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha test/test.js",
-    "test-repot": "nyc --reporter=html --reporter=text mocha test/test.js"
+    "coverage": "nyc --reporter=html --reporter=text mocha test/test.js"
   },
   "bin": {
     "buildman": "./index.js"
