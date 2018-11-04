@@ -3,7 +3,7 @@
 const   importCollection = require("./lib/import").importCollection,
         exportCollection = require("./lib/export").exportCollection,
         utils = require('./lib/app/utils');
-
+const cmd = require('node-cmd');
 const messageColors = 
 {
     success : "green",
@@ -77,6 +77,33 @@ program
         exportCollection(collection, target, getLogFn(options.loglevel, options.quiet));
     })
     .description("lee un directorio y crea una postman collection");
+
+program
+    .command('run <request_path>')
+    .option("-l, --loglevel [level]", "output level [(c)razy | (n)ormal{default} | (h)ard]")
+    .option("-q, --quiet", "silent output (show only errors)")
+    .action(function(request_path, options) {
+        preCommand(request_path, './');
+        const runner = require('./lib/runner').runner;
+        runner(request_path);
+    })
+    .description("lee un directorio y si tiene request los ejecuta");
+
+program
+    .command('debug <request_path>')
+    .option("-l, --loglevel [level]", "output level [(c)razy | (n)ormal{default} | (h)ard]")
+    .option("-q, --quiet", "silent output (show only errors)")
+    .action(function(request_path, options) {
+        let resolve = require('path').resolve;
+        utils.say("Debugger listo...", messageColors.info);
+        utils.say("Usa la consola de chrome mas info: https://nodejs.org/en/docs/guides/debugging-getting-started/#chrome-devtools-55", messageColors.info);
+        cmd.get(`node --inspect-brk ./index.js run "${resolve(request_path)}"`, (err, data) => {
+            if(err) console.log(err);
+            console.log(data);
+            utils.say("Waiting for the debugger to disconnect...", messageColors.info);
+        });
+    })
+    .description("corre un request en modo debug y si tiene request los ejecuta");
 
 program.version(utils.version(), '-v, --version');
 program.name("buildman");
