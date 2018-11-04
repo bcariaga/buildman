@@ -8,12 +8,13 @@ install:
   - npm install -g codecov
 
 stages:
-  - test
   - name: deploy
     if: branch = master
 
-test:
-  - script: npm test && nyc report --reporter=text-lcov > coverage.lcov && codecov
+script: 
+  - npm test
+  - nyc report --reporter=text-lcov > coverage.lcov
+  - codecov
 
 deploy:
   provider: npm
