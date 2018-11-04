@@ -25,10 +25,13 @@ _Note: Is recomendly install buildman globally (--global or -g) to can run it an
 
 ## Usage
 
+### Import
+
 To **import** a postman´s collection **(create a files and folder)** you need run:
 
 `buildman import "path/to/collection.json" "path/to/target/folder"`
 
+### Export
 
 To **export** files and folders to postman´s collection :
 
@@ -37,6 +40,22 @@ To **export** files and folders to postman´s collection :
 _Note: the files and folders need a especific format, please see the [docs](https://bcariaga.github.io/buildman/)._
 
 If you need more info please visit the docs ([https://bcariaga.github.io/buildman/](https://bcariaga.github.io/buildman/))
+
+### Run
+
+Since v 0.5 buildman can run a single request from postman's collection, using a **run** command.
+
+`buildman run "path/to/request/folder"`
+
+### Debug
+
+:construction: **Experimental** :construction:
+
+That feature allows debug by chrome-devtools, works similarity at _Run_ method:
+
+`buildman debug "path/to/request/folder"`
+
+Note: the debug is attached by flag --inspect-brk, you must use a `debug` statement on test or pre scripts.  
 
 ---
 

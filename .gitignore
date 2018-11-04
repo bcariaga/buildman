@@ -71,3 +71,8 @@ typings/
 
 # Serverless directories
 .serverless
+
+# cosas
+cosas
+
+.vscode

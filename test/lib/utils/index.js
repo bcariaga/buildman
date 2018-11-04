@@ -27,9 +27,7 @@ const run = () => {
         });
 
         it("allFilesSync must be read all files", () => {
-            let files = utils.allFilesSync('virtual');
-            console.log(files);
-            
+            let files = utils.allFilesSync('virtual');           
             expect(files).to.not.be.null;
             expect(files).haveOwnProperty('folder one');
             expect(files['folder one']).haveOwnProperty('some file.txt');
