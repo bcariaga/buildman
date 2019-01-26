@@ -27,4 +27,4 @@ deploy:
 branches:
   only:
   - master
-  - /^pre-.*$/
+#  - /^pre-.*$/
