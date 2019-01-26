@@ -80,19 +80,16 @@ program
 
 program
     .command('run <request_path>')
-    .option("-l, --loglevel [level]", "output level [(c)razy | (n)ormal{default} | (h)ard]")
-    .option("-q, --quiet", "silent output (show only errors)")
+    .option("-e, --environment <path>")
     .action(function(request_path, options) {
         preCommand(request_path, './');
         const runner = require('./lib/runner').runner;
-        runner(request_path);
+        runner(request_path, options.environment);
     })
     .description("lee un directorio y si tiene request los ejecuta");
 
 program
     .command('debug <request_path>')
-    .option("-l, --loglevel [level]", "output level [(c)razy | (n)ormal{default} | (h)ard]")
-    .option("-q, --quiet", "silent output (show only errors)")
     .action(function(request_path, options) {
         let resolve = require('path').resolve;
         utils.say("Debugger listo...", messageColors.info);
