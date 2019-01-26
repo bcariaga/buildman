@@ -20,11 +20,11 @@ deploy:
   provider: npm
   email: "cariaga.bh@gmail.com"
   api_key: "NPM_TOKEN"
-  on:
-    tags: true
+  #on:
+  #  tags: true
   skip_cleanup: true
 
 branches:
   only:
   - master
-#  - /^pre-.*$/
+  #- /^pre-.*$/
