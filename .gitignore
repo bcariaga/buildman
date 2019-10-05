@@ -76,3 +76,4 @@ typings/
 cosas
 
 .vscode
+*.stackdump
