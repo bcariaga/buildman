@@ -31,6 +31,10 @@ To **import** a postman´s collection **(create a files and folder)** you need r
 
 `buildman import "path/to/collection.json" "path/to/target/folder"`
 
+**NOTE:** If the request name contains special chars **(_\/:*?"<>|_)** they be **replace to "-"**. 
+Example: postman's folder with name "api/v1" be replace to "api-v1"
+
+
 ### Export
 
 To **export** files and folders to postman´s collection :
